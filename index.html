@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maymara Brugnoli — Artista visual</title>
+  <meta name="description" content="Maymara Brugnoli, artista visual. Pinturas figurativas al óleo que convierten emociones en imágenes. Obras, biografía y contacto.">
+  <meta name="theme-color" content="#f5f5f3">
+
+  <!-- Compartir en redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Maymara Brugnoli — Artista visual">
+  <meta property="og:description" content="Pinturas figurativas al óleo que convierten emociones en imágenes.">
+  <meta property="og:image" content="https://juanrfernandez.github.io/Arte-Maymara/img/og-cover.jpg">
+  <meta property="og:url" content="https://juanrfernandez.github.io/Arte-Maymara/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/newsreader-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/karla-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Maymara Brugnoli",
+    "jobTitle": "Visual artist",
+    "url": "https://juanrfernandez.github.io/Arte-Maymara/",
+    "email": "maymarabrugnoli24@gmail.com",
+    "sameAs": ["https://www.instagram.com/maymara.brugnoli.art/"]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#top">Maymara Brugnoli</a>
+    <nav class="nav" id="nav" aria-label="Navegación">
+      <a href="#obras" data-i18n="nav.works">Obras</a>
+      <a href="#bio" data-i18n="nav.bio">Bio</a>
+      <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Cambiar idioma / Switch language">
+        <span data-lang="es">ES</span><span class="sep" aria-hidden="true">/</span><span data-lang="en">EN</span>
+      </button>
+    </nav>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Menú" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+
+    <!-- PORTADA: nombre + una obra entera, sin recortar -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="kicker" data-site="kicker">Artista visual · Mendoza, Argentina</p>
+          <h1 class="hero-title">Maymara Brugnoli</h1>
+          <p class="hero-tagline" data-site="tagline">Pinturas figurativas al óleo que convierten emociones en imágenes.</p>
+          <a class="link-arrow down" href="#obras" data-i18n="hero.cta">Ver obras</a>
+        </div>
+        <figure class="hero-art">
+          <img id="heroImg" src="" alt="" fetchpriority="high">
+          <figcaption id="heroCaption"></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- OBRAS -->
+    <section class="section" id="obras">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="works.title">Obras</h2>
+          <p class="section-sub" data-site="worksSub">Para quienes buscan belleza con significado y conexión emocional.</p>
+        </div>
+        <div class="filters" id="filters" hidden></div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </section>
+
+    <!-- BIO -->
+    <section class="section section-alt" id="bio">
+      <div class="container bio-grid">
+        <figure class="bio-portrait">
+          <img id="portraitImg" src="img/portrait.jpg" alt="Maymara Brugnoli" loading="lazy">
+        </figure>
+        <div class="bio-text">
+          <h2 data-i18n="bio.title">Sobre mí</h2>
+          <div id="bioBody"></div>
+          <div class="bio-links">
+            <a class="link-arrow" id="bioInstagram" href="#" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section contact" id="contacto">
+      <div class="container contact-grid">
+        <h2 data-i18n="contact.title">Contacto</h2>
+        <div>
+          <p class="section-sub" data-site="contactSub">¿Te interesa alguna obra o querés encargar un cuadro? Escribime por WhatsApp o por mail.</p>
+          <div class="contact-actions">
+            <a class="btn" id="waLink" href="#" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8m-3.3 4.3c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5 0 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3l-2-1c-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.5-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.5-.4-.5-.6-.5h-.5"/></svg>
+              <span data-i18n="contact.wa">Escribir por WhatsApp</span>
+            </a>
+            <a class="link-arrow" id="igLink" href="#" target="_blank" rel="noopener">Instagram</a>
+          </div>
+          <dl class="contact-details">
+            <dt>Email</dt>
+            <dd><a class="text-link" id="mailLink" href="#">maymarabrugnoli24@gmail.com</a></dd>
+            <dt>Instagram</dt>
+            <dd><a class="text-link" id="igHandle" href="#" target="_blank" rel="noopener">@maymara.brugnoli.art</a></dd>
+            <dt id="fbLabel" hidden>Facebook</dt>
+            <dd id="fbItem" hidden><a class="text-link" id="fbLink" href="#" target="_blank" rel="noopener">Maymara Brugnoli</a></dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="year"></span> Maymara Brugnoli · <span data-i18n="footer.rights">Todos los derechos reservados</span></span>
+      <span data-site="kicker">Artista visual · Mendoza, Argentina</span>
+    </div>
+  </footer>
+
+  <!-- VISOR DE OBRAS (lightbox) -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Obra">
+    <button class="lb-btn lb-close" id="lbClose" type="button" data-i18n-aria="lb.close" aria-label="Cerrar">&times;</button>
+    <button class="lb-btn lb-prev" id="lbPrev" type="button" data-i18n-aria="lb.prev" aria-label="Anterior">&#8249;</button>
+    <button class="lb-btn lb-next" id="lbNext" type="button" data-i18n-aria="lb.next" aria-label="Siguiente">&#8250;</button>
+    <figure class="lb-figure">
+      <div class="lb-imgwrap"><img id="lbImg" src="" alt=""></div>
+      <figcaption class="lb-caption">
+        <h3 id="lbTitle"></h3>
+        <p class="lb-meta" id="lbMeta"></p>
+        <p class="lb-desc" id="lbDesc"></p>
+        <a class="btn btn-small btn-light" id="lbAsk" href="#" target="_blank" rel="noopener" data-i18n="lb.ask">Consultar por esta obra</a>
+      </figcaption>
+    </figure>
+  </div>
+
+  <script src="js/site.js"></script>
+  <script src="js/works.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Fotos originales (pesadas) — quedan fuera del repo, solo se suben las optimizadas en img/obras/
+_originals/
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+.vscode/
+*.log
