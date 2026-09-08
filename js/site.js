@@ -23,7 +23,7 @@ window.SITE = {
   expoPhoto: "img/expo-2019.jpg",
 
   // URL pública del sitio (para compartir en redes / Google)
-  url: "https://juanrfernandez.github.io/Arte-Maymara/",
+  url: "https://maymarabrugnoli.com/",
 
   // Trayectoria: una línea por muestra/premio, de más reciente a más antigua
   cv: [
