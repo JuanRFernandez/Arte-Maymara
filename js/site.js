@@ -9,7 +9,7 @@ window.SITE = {
   // Número de WhatsApp en formato internacional, SOLO dígitos (sin +, sin espacios).
   // Ej. Argentina: 549 + código de área + número  ->  "5492611234567"
   // Mientras esté vacío ("") los botones de WhatsApp no se muestran.
-  whatsapp: "",                          // TODO: poner el número real
+  whatsapp: "5492616940320",   // WhatsApp de la artista
 
   email: "maymarabrugnoli24@gmail.com",
   instagram: "maymara.brugnoli.art",     // usuario de Instagram (sin @)
