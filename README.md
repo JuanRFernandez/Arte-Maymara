@@ -14,10 +14,10 @@ bilingüe ES/EN, publicado gratis con **GitHub Pages** desde la rama `main`.
 | `js/site.js` | **Textos ES/EN** (lema, bio, contacto, WhatsApp, imagen de portada) | **Sí — textos y contacto** |
 | `js/main.js` | Lógica: idioma, grilla, filtros por serie, visor | No |
 | `css/style.css` | Estilos | Solo para cambios de diseño |
-| `img/obras/` + `img/obras/thumbs/` | Fotos optimizadas (1800 px) y miniaturas (800 px) | Se generan con el script |
+| `img/obras/` + `img/obras/thumbs/` | Fotos optimizadas (1400 px) y miniaturas (720 px) | Se generan con el script |
 | `img/portrait.jpg` | Foto para la sección Bio | Reemplazar |
 | `img/og-cover.jpg` | Imagen al compartir el link (WhatsApp, redes) | Se genera con el script |
-| `fonts/` | Tipografías alojadas localmente (Cormorant Garamond + Inter) | No |
+| `fonts/` | Tipografías alojadas localmente (Jost + DM Sans) | No |
 | `tools/optimize_images.py` | Optimiza fotos nuevas | — |
 | `tools/make_og_cover.py` | Genera `img/og-cover.jpg` a partir de una obra | — |
 | `_originals/` | Fotos originales pesadas — **no se suben al repo** (`.gitignore`) | — |

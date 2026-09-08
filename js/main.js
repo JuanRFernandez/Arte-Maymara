@@ -20,7 +20,7 @@
       "footer.rights": "Todos los derechos reservados",
       "lb.ask": "Consultar por esta obra", "lb.close": "Cerrar", "lb.prev": "Anterior", "lb.next": "Siguiente",
       "filter.all": "Todas", "sold": "Vendida", "available": "Disponible",
-      "title": "Maymara Brugnoli — Artista visual",
+      "title": "Maymara Brugnoli — Artista plástica",
       "empty": "Todavía no hay obras cargadas."
     },
     en: {
@@ -73,7 +73,7 @@
 
   /* ---------- Helpers ---------- */
   // asset(): permite reemplazar rutas de imágenes por otras (se usa solo en la vista previa de un solo archivo)
-  const asset = (p) => (window.__ASSETS && window.__ASSETS[p]) || p;
+  const asset = (p) => (window.__ASSETS && (window.__ASSETS[p] || window.__ASSETS[p.replace("img/obras/", "img/obras/thumbs/")])) || p;
   const imgFull = (w) => asset(w.image || ("img/obras/" + w.id + ".jpg"));
   const imgThumb = (w) => asset(w.thumb || ("img/obras/thumbs/" + w.id + ".jpg"));
   const isSold = (w) => w.sold === true || w.available === false;
@@ -90,7 +90,10 @@
     const src = imgFull(w);
     if (img.getAttribute("src") !== src) img.src = src;
     img.alt = tx(w.title);
-    if (cap) cap.innerHTML = "<em>" + esc(tx(w.title)) + "</em>" + (w.year ? ", " + w.year : "") + " — " + esc(metaLine(w).replace(" · " + w.year, ""));
+    if (cap) {
+      const rest = [tx(w.technique), w.size].filter(Boolean).join(" · ");
+      cap.innerHTML = "<em>" + esc(tx(w.title)) + "</em>" + (w.year ? ", " + w.year : "") + (rest ? " — " + esc(rest) : "");
+    }
     img.style.cursor = "pointer";
     img.onclick = () => openLightbox(WORKS.indexOf(w));
   }
@@ -103,6 +106,16 @@
     if (ig) { ig.href = "https://www.instagram.com/" + (SITE.instagram || ""); ig.hidden = !SITE.instagram; }
     const portrait = document.getElementById("portraitImg");
     if (portrait && SITE.portrait) portrait.src = asset(SITE.portrait);
+    // trayectoria
+    const cv = document.getElementById("cvList");
+    if (cv) {
+      const items = Array.isArray(SITE.cv) ? SITE.cv : [];
+      cv.innerHTML = items.map((it) => "<dt>" + esc(it.year || "") + "</dt><dd>" + esc(tx(it)) + "</dd>").join("");
+      cv.hidden = !items.length;
+      const t3 = document.querySelector(".cv-title"); if (t3) t3.hidden = !items.length;
+    }
+    const expo = document.getElementById("expoFigure"), expoImg = document.getElementById("expoImg");
+    if (expo) { expo.hidden = !SITE.expoPhoto; if (SITE.expoPhoto && expoImg) expoImg.src = asset(SITE.expoPhoto); }
   }
 
   function renderContact() {
@@ -146,17 +159,26 @@
     box.querySelectorAll(".pill").forEach((b) => b.addEventListener("click", () => { activeSeries = b.dataset.series; renderGallery(); }));
   }
 
+  // columnas de la grilla según el ancho (orden de lectura: izquierda → derecha, fila por fila)
+  const colCount = () => (window.innerWidth <= 1024 ? 2 : 3);
+  let lastCols = 0;
+
   function renderGallery() {
     const grid = document.getElementById("grid");
     if (!grid) return;
     renderFilters();
     visible = [];
     if (!WORKS.length) { grid.innerHTML = '<p class="grid-empty">' + t("empty") + "</p>"; return; }
-    grid.innerHTML = WORKS.map((w, i) => {
-      const show = activeSeries === "all" || seriesKey(w) === activeSeries;
-      if (show) visible.push(i);
-      return (
-        '<figure class="card' + (show ? "" : " hide") + '" data-index="' + i + '" tabindex="0" role="button" aria-label="' + esc(tx(w.title)) + '">' +
+    const cols = colCount();
+    lastCols = cols;
+    grid.innerHTML = "";
+    grid.style.setProperty("--cols", cols);
+    const colEls = Array.from({ length: cols }, () => { const c = document.createElement("div"); c.className = "col"; grid.appendChild(c); return c; });
+    WORKS.forEach((w, i) => {
+      if (!(activeSeries === "all" || seriesKey(w) === activeSeries)) return;
+      const k = visible.length; visible.push(i);
+      colEls[k % cols].insertAdjacentHTML("beforeend",
+        '<figure class="card" data-index="' + i + '" tabindex="0" role="button" aria-label="' + esc(tx(w.title)) + '">' +
           '<div class="card-img">' +
             '<img src="' + imgThumb(w) + '" alt="' + esc(tx(w.title)) + '" loading="lazy" decoding="async">' +
             (isSold(w) ? '<span class="badge">' + t("sold") + "</span>" : "") +
@@ -165,9 +187,8 @@
             '<div class="card-title">' + esc(tx(w.title)) + "</div>" +
             '<p class="card-meta">' + esc(metaLine(w)) + "</p>" +
           "</figcaption>" +
-        "</figure>"
-      );
-    }).join("");
+        "</figure>");
+    });
     grid.querySelectorAll(".card").forEach((card) => {
       card.addEventListener("click", () => openLightbox(+card.dataset.index));
       card.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(+card.dataset.index); } });
@@ -178,6 +199,8 @@
       if (im.complete && im.naturalWidth) done(); else { im.addEventListener("load", done, { once: true }); im.addEventListener("error", done, { once: true }); }
     });
   }
+  let rsT = null;
+  window.addEventListener("resize", () => { clearTimeout(rsT); rsT = setTimeout(() => { if (colCount() !== lastCols) renderGallery(); }, 150); });
 
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
 
@@ -196,7 +219,7 @@
     document.getElementById("lbMeta").textContent = metaLine(w) + status;
     document.getElementById("lbDesc").textContent = tx(w.description);
     const ask = document.getElementById("lbAsk");
-    ask.href = waUrl(siteText("waMessage").replace("{title}", tx(w.title)).replace("{year}", w.year || ""));
+    ask.href = waUrl(siteText("waMessage").replace("{title}", tx(w.title)).replace(" ({year})", w.year ? " (" + w.year + ")" : "").replace("{year}", w.year || ""));
     ask.hidden = !SITE.whatsapp || isSold(w);
     const pos = visible.indexOf(i);
     document.getElementById("lbPrev").classList.toggle("disabled", pos <= 0);

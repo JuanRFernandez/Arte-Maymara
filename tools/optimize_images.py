@@ -7,8 +7,8 @@ Uso:
     python3 tools/optimize_images.py _originals/foto.jpg    # una sola imagen
 
 Para cada imagen de entrada genera:
-    img/obras/<nombre>.jpg          (lado mayor 1800 px, calidad 82)  -> lightbox
-    img/obras/thumbs/<nombre>.jpg   (lado mayor 800 px,  calidad 80)  -> grilla
+    img/obras/<nombre>.jpg          (lado mayor 1400 px, calidad 78)  -> lightbox
+    img/obras/thumbs/<nombre>.jpg   (lado mayor 720 px,  calidad 76)  -> grilla
 
 El <nombre> es el nombre del archivo original en minúsculas, sin espacios ni acentos.
 Los originales NO se suben al repo (carpeta _originals/ está en .gitignore).
@@ -22,8 +22,8 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parent.parent
 OUT_FULL = ROOT / "img" / "obras"
 OUT_THUMB = OUT_FULL / "thumbs"
-MAX_FULL, MAX_THUMB = 1800, 800
-Q_FULL, Q_THUMB = 82, 80
+MAX_FULL, MAX_THUMB = 1400, 720
+Q_FULL, Q_THUMB = 78, 76
 EXTS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".heic"}
 
 

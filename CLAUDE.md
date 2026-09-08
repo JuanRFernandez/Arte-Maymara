@@ -16,3 +16,8 @@ Sitio estático del portfolio de Maymara Brugnoli (artista visual, óleos figura
 - **Cambiar bio / lema / contacto:** editar `js/site.js` (ambos idiomas).
 - **Cambiar obra de portada:** `heroWork` en `js/site.js` y regenerar `img/og-cover.jpg` con `tools/make_og_cover.py`.
 - **Publicar:** `git push` a `main` (GitHub Pages, ~1 min).
+
+## Títulos, años y medidas de las obras
+- Los títulos actuales en `js/works.js` son PROVISORIOS (descriptivos). La artista completa los datos reales en el PDF numerado `lista-de-obras-para-completar.pdf`: el número N corresponde a la entrada N (en orden) de `js/works.js`.
+- Al recibir los datos: actualizar `title.es`/`title.en`, agregar `year` (número) y `size` (texto, ej. "80 × 100 cm"); si está vendida, `available: false`.
+- El WhatsApp de la artista va en `js/site.js` → `whatsapp` (solo dígitos con código de país). Mientras esté vacío, los botones de WhatsApp no se muestran.

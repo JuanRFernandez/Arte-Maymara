@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maymara Brugnoli — Artista visual</title>
-  <meta name="description" content="Maymara Brugnoli, artista visual. Pinturas figurativas al óleo que convierten emociones en imágenes. Obras, biografía y contacto.">
-  <meta name="theme-color" content="#f5f5f3">
+  <title>Maymara Brugnoli — Artista plástica</title>
+  <meta name="description" content="Maymara Brugnoli, artista plástica de Mendoza, Argentina. Obras figurativas en óleo que transforman emociones en imágenes. Obras, biografía y contacto.">
+  <meta name="theme-color" content="#f7f7f5">
 
   <!-- Compartir en redes -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Maymara Brugnoli — Artista visual">
-  <meta property="og:description" content="Pinturas figurativas al óleo que convierten emociones en imágenes.">
+  <meta property="og:title" content="Maymara Brugnoli — Artista plástica">
+  <meta property="og:description" content="Obras figurativas en óleo que transforman emociones en imágenes.">
   <meta property="og:image" content="https://juanrfernandez.github.io/Arte-Maymara/img/og-cover.jpg">
   <meta property="og:url" content="https://juanrfernandez.github.io/Arte-Maymara/">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="fonts/newsreader-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/karla-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/jost-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
 
   <script type="application/ld+json">
@@ -25,7 +25,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Maymara Brugnoli",
-    "jobTitle": "Visual artist",
+    "jobTitle": "Visual artist", "address": { "@type": "PostalAddress", "addressLocality": "Mendoza", "addressCountry": "AR" },
     "url": "https://juanrfernandez.github.io/Arte-Maymara/",
     "email": "maymarabrugnoli24@gmail.com",
     "sameAs": ["https://www.instagram.com/maymara.brugnoli.art/"]
@@ -55,7 +55,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <p class="kicker" data-site="kicker">Artista visual · Mendoza, Argentina</p>
+          <p class="kicker" data-site="kicker">Artista plástica · Mendoza, Argentina</p>
           <h1 class="hero-title">Maymara Brugnoli</h1>
           <p class="hero-tagline" data-site="tagline">Pinturas figurativas al óleo que convierten emociones en imágenes.</p>
           <a class="link-arrow down" href="#obras" data-i18n="hero.cta">Ver obras</a>
@@ -91,6 +91,15 @@
           <div class="bio-links">
             <a class="link-arrow" id="bioInstagram" href="#" target="_blank" rel="noopener">Instagram</a>
           </div>
+
+          <div class="cv">
+            <h3 class="cv-title" data-site="cvTitle">Trayectoria</h3>
+            <dl class="cv-list" id="cvList"></dl>
+            <figure class="expo" id="expoFigure">
+              <img id="expoImg" src="img/expo-2019.jpg" alt="" loading="lazy">
+              <figcaption data-site="expoCaption">Muestra, 2019</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -125,7 +134,7 @@
   <footer class="site-footer">
     <div class="container">
       <span>© <span id="year"></span> Maymara Brugnoli · <span data-i18n="footer.rights">Todos los derechos reservados</span></span>
-      <span data-site="kicker">Artista visual · Mendoza, Argentina</span>
+      <span data-site="kicker">Artista plástica · Mendoza, Argentina</span>
     </div>
   </footer>
 
